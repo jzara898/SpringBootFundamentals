@@ -6,13 +6,21 @@ import java.util.List;
 import java.util.Map;
 
 import java.util.Optional;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Course;
 
+@Component
+@Primary
 public class InMemoryCourseDAO implements BaseDAO<Course> {
 
     private Map<Integer, Course> courses = new HashMap<Integer, Course>();
     private static int nextId = 0;
+
+    public InMemoryCourseDAO() {
+        int stop = 1;
+    }
 
     public boolean update(Course updateObject) {
         return courses.replace(updateObject.getId(), updateObject) != null;

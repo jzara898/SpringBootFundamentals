@@ -14,10 +14,13 @@ public class StudentService {
 
     //private InMemoryStudentDAO studentDAO;
     private BaseDAO<Student> studentDAO;
+    private int count;
 
     public StudentService() {
 //        studentDAO = new InMemoryStudentDAO();
         int stop = 0;
+
+        count = 10;
     }
 
     public Student createStudent(String name, String phoneNumber, Status status) {

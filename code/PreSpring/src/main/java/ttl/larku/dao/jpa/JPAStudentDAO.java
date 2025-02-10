@@ -13,6 +13,10 @@ public class JPAStudentDAO implements BaseDAO<Student> {
     private Map<Integer, Student> students = new HashMap<Integer, Student>();
     private static int nextId = 0;
 
+    public JPAStudentDAO() {
+        int blah = 0;
+    }
+
     public boolean update(Student updateObject) {
         return students.replace(updateObject.getId(), updateObject) != null;
     }

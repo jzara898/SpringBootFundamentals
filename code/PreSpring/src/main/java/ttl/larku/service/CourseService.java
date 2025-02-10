@@ -2,14 +2,22 @@ package ttl.larku.service;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Course;
 
+@Component
 public class CourseService {
 
+    @Autowired
+    @Qualifier("JPACourseDAO")
     private BaseDAO<Course> courseDAO;
 
     public CourseService() {
+        int stop = 0;
     }
 
     public Course createCourse(String code, String title) {

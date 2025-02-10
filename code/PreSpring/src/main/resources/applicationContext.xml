@@ -10,7 +10,13 @@
 
     <bean id="inMemoryDAO" class="ttl.larku.dao.inmemory.InMemoryStudentDAO"/>
 
-    <bean id="studentService" class="ttl.larku.service.StudentService">
+
+    <bean id="studentService" class="ttl.larku.service.StudentService" >
         <property name="studentDAO" ref="inMemoryDAO"/>
+    </bean>
+
+    <bean id="jpaStudentDAO" class="ttl.larku.dao.jpa.JPAStudentDAO"/>
+    <bean id="studentService2" class="ttl.larku.service.StudentService" >
+        <property name="studentDAO" ref="jpaStudentDAO"/>
     </bean>
 </beans>
