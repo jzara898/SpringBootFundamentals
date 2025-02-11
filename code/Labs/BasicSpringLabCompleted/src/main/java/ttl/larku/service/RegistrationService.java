@@ -17,6 +17,7 @@ public class RegistrationService {
     private StudentService studentService;
     private ClassService classService;
 
+    @Autowired
     public RegistrationService(CourseService courseService,
                                StudentService studentService,
                                ClassService classService) {

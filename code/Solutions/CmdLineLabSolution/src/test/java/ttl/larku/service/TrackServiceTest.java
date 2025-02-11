@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-@ExtendWith(SpringExtension.class)
 //Different ways of creating the Context.  From Most Expensive to
 // Not So Expensive.
 /**********************
