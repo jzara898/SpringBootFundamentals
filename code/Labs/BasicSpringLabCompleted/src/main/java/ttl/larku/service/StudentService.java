@@ -8,7 +8,7 @@ import ttl.larku.domain.Student;
 
 import java.util.List;
 
-@Component
+@Service
 public class StudentService {
 
     @Autowired
