@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.availability.AvailabilityChangeEvent;
 import org.springframework.boot.availability.AvailabilityState;
@@ -18,6 +19,7 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
@@ -33,7 +35,6 @@ import java.util.Set;
 
 @EnableAsync
 @SpringBootApplication
-
 //Can Customize the ComponentScan if you want.
 //Here, we are going to exclude all beans under
 //the "ttl.larku.app.tricky" package.
@@ -54,6 +55,7 @@ public class SpringBootApp {
         SpringApplication app = new SpringApplication(SpringBootApp.class);
         app.addInitializers(new MyInitializer());
         ConfigurableApplicationContext context = app.run(args);
+        int stop = 1;
     }
 
     public static void mainWithBuilder(String [] args) {

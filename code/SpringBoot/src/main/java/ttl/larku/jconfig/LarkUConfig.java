@@ -112,7 +112,8 @@ public class LarkUConfig {
    }
 
    public BaseDAO<ScheduledClass> jpaClassDAO() {
-      return new JPAClassDAO();
+      return testDataProducer.classDAOWithInitData();
+//      return new JPAClassDAO();
    }
 
    /**

@@ -1,6 +1,10 @@
 package ttl.larku.service.reg.unit;
 
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -60,6 +64,16 @@ public class StudentServiceUnitTest {
     @InjectMocks
     private StudentService studentService;
 
+    private static Instant start;
+    @BeforeAll
+    public static void beforeAll() {
+        start = Instant.now();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Test took:" + start.until(Instant.now(), ChronoUnit.MILLIS) + " ms");
+    }
     @BeforeEach
     public void setup() {
         studentService.clear();

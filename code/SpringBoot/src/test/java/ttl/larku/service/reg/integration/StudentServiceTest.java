@@ -1,7 +1,11 @@
 package ttl.larku.service.reg.integration;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -57,12 +61,24 @@ public class StudentServiceTest {
     private String phoneNumber1 = "290 298 4790";
     private String phoneNumber2 = "3838 939 93939";
 
+    private static Instant start;
+
     @Autowired
     @Qualifier("studentService")
     private StudentService studentService;
 
     @Autowired
     private ApplicationContext context;
+
+    @BeforeAll
+    public static void beforeAll() {
+        start = Instant.now();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Test took:" + start.until(Instant.now(), ChronoUnit.MILLIS) + " ms");
+    }
 
     @BeforeEach
     public void setup() {

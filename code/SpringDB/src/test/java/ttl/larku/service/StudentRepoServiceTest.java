@@ -1,6 +1,10 @@
 package ttl.larku.service;
 
 import jakarta.annotation.Resource;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -66,8 +70,26 @@ public class StudentRepoServiceTest extends SqlScriptBase {
     @Autowired
     private StudentService studentService;
 
+    private static Instant start;
+    private static Instant staticStart;
+    @BeforeAll
+    public static void beforeAll() {
+        staticStart = Instant.now();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Test took:" + start.until(Instant.now(), ChronoUnit.MILLIS) + " ms");
+    }
+
+    private boolean first = true;
     @BeforeEach
     public void setup() {
+        if(first) {
+            start = Instant.now();
+            System.out.println("Preamble took:" + staticStart.until(Instant.now(), ChronoUnit.MILLIS) + " ms");
+            first = false;
+        }
         student1 = new Student(name1);
         student2 = new Student(name2);
         course1 = new Course(code1, title1);

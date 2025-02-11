@@ -34,8 +34,8 @@ public class CourseServiceUnitTest {
     @Mock
     private JPACourseDAO courseDAO;
 
-    @Mock
-    private List<Course> allCourses;
+//    @Mock
+//    private List<Course> allCourses;
 
     @BeforeEach
     public void setup() {

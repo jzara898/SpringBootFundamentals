@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Course;
 
-@Component
+@Service
 public class CourseService {
 
     @Autowired
-    @Qualifier("JPACourseDAO")
     private BaseDAO<Course> courseDAO;
 
     public CourseService() {

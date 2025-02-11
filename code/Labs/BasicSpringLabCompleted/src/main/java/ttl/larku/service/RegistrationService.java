@@ -23,9 +23,6 @@ public class RegistrationService {
         this.classService = classService;
         this.courseService = courseService;
         this.studentService = studentService;
-
-        int count = studentService.getAllStudents().size();
-        System.out.println("count: " + count);
     }
 
 
