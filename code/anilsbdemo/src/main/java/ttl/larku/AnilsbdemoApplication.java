@@ -38,3 +38,19 @@ class AnilsRunner implements CommandLineRunner {
       students.forEach(System.out::println);
    }
 }
+
+//@Component
+//class TrackRunner implements CommandLineRunner {
+//
+//   @Autowired
+//   private TrackService trackService;
+//
+//   @Override
+//   public void run(String... args) throws Exception {
+//      System.out.println("Here we go with Spring Boot");
+//
+//      List<Student> tracks = trackService.getAllTracks();
+//      System.out.println("student: " + tracks.size());
+//      tracks.forEach(System.out::println);
+//   }
+//}
